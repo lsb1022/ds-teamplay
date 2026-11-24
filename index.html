@@ -217,6 +217,8 @@ h1,h2,h3,p,li,td,th,b,span,div{word-break:keep-all}h1,h2,h3{text-wrap:balance}p,
 .langsw button{font:inherit;font-size:14px;font-weight:700;border:0;border-radius:8px;padding:6px 13px;background:none;color:#6b7684!important;cursor:pointer}
 .langsw button.on{background:#fff;color:var(--ink)!important;box-shadow:0 1px 3px rgba(0,0,0,.08)}
 html.mob .langsw{right:12px;top:calc(var(--barh,64px) + 8px)}html.mob .langsw button{font-size:13px;padding:5px 10px}
+html.mob .bar-in>b{display:none}html.mob .bar-in{padding-left:8px!important;padding-right:8px!important;justify-content:center}
+html.mob .tabs{max-width:100%;overflow-x:auto;scrollbar-width:none}html.mob .tabs a{font-size:12.5px!important;padding:7px 8px!important;white-space:nowrap}
 .dotnav{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:none;flex-direction:column;gap:9px;z-index:6}
 .dotnav button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:var(--bar);cursor:pointer;transition:transform .2s,background .2s}
 .dotnav button.on{background:var(--blue);transform:scale(1.6)}
@@ -565,6 +567,33 @@ table.grid td.nw{background:#e8f3ff!important;border-color:var(--blue)!important
 .gb b{display:block;font-size:21px;font-weight:800;line-height:1.3}
 .gb p{margin:6px 0 0;font-size:16px;line-height:1.5}
 @media(max-width:700px){.gb{grid-template-columns:1fr}.dgr{grid-template-columns:1fr}}
+
+#page-lang .sbody>p.lead{font-size:19px;font-weight:400;line-height:1.7;max-width:780px}
+#page-lang .sbody>p.lead b{font-weight:800}
+#page-lang .wy .num strong{font-size:34px}
+#page-lang .wy .who b{font-size:19px}
+.rgs{display:grid;gap:16px;margin-top:6px}
+.rg2{display:grid;grid-template-columns:120px minmax(0,1fr) 300px;align-items:center;gap:16px;font-size:16px}
+.rg2 .nm{font-weight:700}
+.rg2 .tr{position:relative;height:18px;border-radius:9px;background:#f2f4f6}
+.rg2 .tr i{position:absolute;top:0;bottom:0;border-radius:9px;background:var(--blue);min-width:8px}
+.rg2 .vl b{display:block;font-size:19px;font-weight:800}.rg2 .vl small{display:block;font-size:13px;color:#8b95a1!important}
+.rg2.hd{font-size:13.5px;font-weight:700}.rg2.hd .tk{position:relative;height:18px}
+.rg2.hd .tk em{position:absolute;transform:translateX(-50%);font-style:normal;font-size:13px;color:#8b95a1!important;white-space:nowrap}
+.rg2 .tr u{position:absolute;top:-4px;bottom:-4px;width:1.5px;background:#c4cad1}.rg2 .tr i{opacity:.85}
+.hbs.lr .hb .vl{font-size:13px;color:#8b95a1!important}.hbs.lr .hb .vl b{color:var(--ink)!important;min-width:58px;font-size:16px}
+.hbs.lr .hb .tr i{background:var(--blue)}
+.sps{display:grid;gap:0;max-width:760px}
+.sp{display:grid;grid-template-columns:150px 1fr 40px 1fr 80px;align-items:center;gap:10px;padding:15px 0;border-bottom:1px solid var(--grid);font-size:17px}
+.sp:last-child{border-bottom:0}
+.sp .nm{font-weight:700}.sp b{font-size:24px;font-weight:800;letter-spacing:-.02em}
+.sp i{font-style:normal;color:#b0b8c1!important;text-align:center}
+.sp em{font-style:normal;font-size:14px;font-weight:700;color:#8b95a1!important;text-align:right}
+.sp.dn b.p{color:var(--blue)!important}.sp.dn em{color:var(--blue)!important}
+.sp.hd{font-size:14px;font-weight:800;padding:0 0 8px}.sp.hd span{color:var(--blue)!important}
+@media(max-width:999px){.rg2{grid-template-columns:64px minmax(0,1fr) 118px;gap:8px;font-size:14px}.rg2 .vl b{font-size:14.5px}.rg2 .vl small{font-size:11px}
+ .sp{grid-template-columns:76px 1fr 18px 1fr 44px;gap:6px;font-size:14px}.sp b{font-size:16px}.sp em{font-size:12px}
+ #page-lang .wy .num strong{font-size:24px!important}}
 </style>
 </head>
 <body>
@@ -573,7 +602,7 @@ table.grid td.nw{background:#e8f3ff!important;border-color:var(--blue)!important
   <div class="bar-in">
     <b>자료구조 실험</b>
     <nav class="tabs" aria-label="페이지">
-      <a href="#about" id="tab-about">개요</a><a href="#summary" id="tab-summary">측정 방법</a><a href="#rank" id="tab-rank">자료구조 순위</a><a href="#verify" id="tab-verify">가설 확인</a>
+      <a href="#about" id="tab-about">개요</a><a href="#summary" id="tab-summary">측정 방법</a><a href="#rank" id="tab-rank">자료구조 순위</a><a href="#lang" id="tab-lang">언어 비교</a><a href="#verify" id="tab-verify">가설 확인</a>
     </nav>
   </div>
   <div class="subbar" id="subbar" hidden><nav class="chips" aria-label="비교 바로가기">
@@ -585,9 +614,9 @@ table.grid td.nw{background:#e8f3ff!important;border-color:var(--blue)!important
 <header class="card">
   <div class="head">
     <div class="eyebrow">자료구조 팀 프로젝트 · 개요</div>
-    <h1>영화 추천 시스템에서<br>자료구조 선택이 얼마나 중요한지 측정했어요</h1>
+    <h1>영화 추천 시스템에서 자료구조와 언어 선택이<br>얼마나 중요한지 측정했어요</h1>
   </div>
-  <p class="sub">Netflix 의 실제 평점 약 1억 건으로 추천 시스템을 만들고, 그 안에서 쓰는 자료구조만 바꿔 가며 시간과 메모리를 비교한 프로젝트예요.</p>
+  <p class="sub">Netflix 의 실제 평점 약 1억 건으로 추천 시스템을 만들고, 그 안에서 쓰는 자료구조와 언어(C++ · Python)만 바꿔 가며 시간과 메모리를 비교한 프로젝트예요.</p>
 </header>
 <section class="card" id="map">
 <style>
@@ -628,7 +657,7 @@ table.grid td.nw{background:#e8f3ff!important;border-color:var(--blue)!important
 .r3 a{gap:12px}.r3 b{font-weight:700;font-size:16px}.r3 strong{font-size:25px;color:var(--blue);font-weight:800;line-height:1.35;text-wrap:balance}.r3 span{font-size:19px;font-weight:700;color:var(--ink)}
 @media(max-width:820px){.dt,.r3{grid-template-columns:1fr}}
 </style>
-  <div class="head"><div class="eyebrow">프로젝트 지도</div><h2>프로그램은 그대로 두고 자료구조만 바꿨어요</h2></div>
+  <div class="head"><div class="eyebrow">프로젝트 지도</div><h2>프로그램은 그대로 두고 자료구조와 언어만 바꿨어요</h2></div>
   <div class="mp">
     <div class="mp-row">
       <div class="mp-box"><b>별점 1억 개</b><div class="mp-stars">★★★★☆<br>★★☆☆☆<br>★★★★★</div></div>
@@ -640,7 +669,7 @@ table.grid td.nw{background:#e8f3ff!important;border-color:var(--blue)!important
     </div>
     <div class="mp-swap"><div>
       <div class="mp-v up">↑</div>
-      <div class="mp-chip"><b>자료구조만 갈아 끼움</b>
+      <div class="mp-chip"><b>자료구조를 갈아 끼움 · C++ 과 Python 으로 각각</b>
         <div class="ics"><span><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="12" height="12"/><rect x="13" y="6" width="12" height="12"/><rect x="25" y="6" width="12" height="12"/><rect x="37" y="6" width="12" height="12"/></g></svg>배열<small>칸이 붙어 있음</small></span><span><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="2" width="10" height="10"/><rect x="20" y="12" width="10" height="10"/><rect x="39" y="2" width="10" height="10"/><path d="M11 8l9 8M30 16l9 -8"/></g></svg>연결 리스트<small>쪽지로 이음</small></span><span><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="1" width="12" height="11"/><rect x="19" y="1" width="12" height="11"/><rect x="31" y="1" width="12" height="11"/><rect x="7" y="12" width="12" height="11"/><rect x="19" y="12" width="12" height="11"/><rect x="31" y="12" width="12" height="11"/></g><rect x="21" y="14" width="8" height="7" fill="currentColor"/></svg>해시<small>번호로 바로 감</small></span><span><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="25" cy="5" r="4"/><circle cx="13" cy="19" r="4"/><circle cx="37" cy="19" r="4"/><path d="M22 8l-6 8M28 8l6 8"/></g></svg>트리<small>반씩 줄여 감</small></span></div></div>
       <div class="mp-v">↓</div>
       <div class="mp-out">측정한 것: 시간 복잡도 · 공간 복잡도</div>
@@ -711,6 +740,39 @@ table.grid td.nw{background:#e8f3ff!important;border-color:var(--blue)!important
     <li><span>공간은 5번 모두 같은 값이에요. 시간은 측정마다 최대 70%까지 흔들렸어요.</span></li>
     <li><span>이웃한 순위끼리 측정 범위가 겹친 경우는 10쌍이에요. 그 쌍은 순위가 바뀔 수 있어요. 1등과 꼴찌의 차이는 흔들림보다 훨씬 커요.</span></li>
     <li><span>C++ 로 가상 서버(2코어, 8GB) 한 대에서 잰 값이에요. 다른 컴퓨터에서는 숫자가 달라질 수 있어요.</span></li>
+  </ul>
+</section>
+</main>
+<main class="page" id="page-lang" hidden>
+<header class="card">
+  <div class="head"><div class="eyebrow">언어 비교</div><h1>같은 자료구조라도<br>언어를 바꾸면 결과가 달라져요</h1></div>
+  <p class="sub">C++ 과 Python 으로 같은 10가지 자료구조를 만들고, 같은 네 가지 일을 시켰어요.</p>
+</header>
+<section class="card" id="l_a1"><ol class="stage top"><li class="on">직관</li><li class="">논리</li><li class="">데이터</li></ol><div class="head"><div class="where"><b>① 속도 차이</b></div><h2>미리 번역해 둔 원고를 읽는 것과<br>한 문장씩 통역을 거치는 것의 차이예요</h2></div><div class="sbody"><p class="lead"><b>C++</b> 은 실행하기 전에 전부 <b>기계어로 바꿔 둬요.</b> <b>Python</b> 은 실행하면서 <b>한 줄씩 해석해요.</b></p></div></section>
+<section class="card" id="l_a2"><ol class="stage top"><li class="">직관</li><li class="on">논리</li><li class="">데이터</li></ol><div class="head"><div class="where"><b>① 속도 차이</b></div><h2>Python 은 숫자 하나도<br>상자에 담아서 다뤄요</h2></div><div class="sbody"><div class="why2"><div class="wy lo"><div class="who"><b>Python 의 숫자 1개</b></div><div class="num"><strong>28<small>바이트</small></strong><span>값 + 종류 + 참조 횟수가 든 객체</span></div><p>배열에는 이 객체의 위치만 들어가요.</p></div><div class="gap"><b>7배</b><span>차이</span></div><div class="wy hi"><div class="who"><b>C++ 의 숫자 1개</b></div><div class="num"><strong>4<small>바이트</small></strong><span>값 그대로</span></div><p>배열에 값이 바로 붙어 있어요.</p></div></div></div></section>
+<section class="card" id="l_a3"><ol class="stage top"><li class="">직관</li><li class="">논리</li><li class="on">데이터</li></ol><div class="head"><div class="where"><b>① 속도 차이</b></div><h2>같은 일을 Python 은<br>최대 271배 느리게 해요</h2></div><div class="sbody"><div class="rgs"><div class="rg2 hd"><span></span><span class="tk"><em style="left:17.4%">같음</em><em style="left:50.8%">10배</em><em style="left:84.1%">100배</em></span><span>Python ÷ C++</span></div><div class="rg2"><span class="nm">공간 복잡도</span><span class="tr"><u style="left:17.4%"></u><u style="left:50.8%"></u><u style="left:84.1%"></u><i style="left:5.6%;width:45.0%"></i></span><span class="vl"><b>0.4 ~ 9.9배</b><small>해시 체이닝 (직접) ~ 정렬 안 한 배열</small></span></div><div class="rg2"><span class="nm">순회</span><span class="tr"><u style="left:17.4%"></u><u style="left:50.8%"></u><u style="left:84.1%"></u><i style="left:15.7%;width:82.9%"></i></span><span class="vl"><b>0.9 ~ 271배</b><small>해시 (내장) ~ 영화별 배열</small></span></div><div class="rg2"><span class="nm">검색</span><span class="tr"><u style="left:17.4%"></u><u style="left:50.8%"></u><u style="left:84.1%"></u><i style="left:20.1%;width:77.8%"></i></span><span class="vl"><b>1.2 ~ 259배</b><small>연결 리스트 (내장) ~ 영화별 배열</small></span></div><div class="rg2"><span class="nm">삽입</span><span class="tr"><u style="left:17.4%"></u><u style="left:50.8%"></u><u style="left:84.1%"></u><i style="left:15.7%;width:51.3%"></i></span><span class="vl"><b>0.9 ~ 31배</b><small>정렬한 배열 ~ 2차원 표</small></span></div></div><p class="fine">같은 자료구조에 같은 일을 시켰을 때 Python 값을 C++ 값으로 나눈 거예요. 공간은 몇 배 더 쓰는지, 나머지는 몇 배 느린지예요.</p></div></section>
+<section class="card" id="l_b1"><ol class="stage top"><li class="on">직관</li><li class="">논리</li><li class="">데이터</li></ol><div class="head"><div class="where"><b>② 순위 변화</b></div><h2>모든 길에 똑같이 10분이 더 걸리면<br>1분 거리는 11배, 1시간 거리는 1.2배가 돼요</h2></div><div class="sbody"><p class="lead">Python 의 <b>해석 시간</b>이 이 10분이에요. <b>빠르던 구조일수록 몇 배씩</b> 느려지고, 느리던 구조는 티가 덜 나요.</p></div></section>
+<section class="card" id="l_b2"><ol class="stage top"><li class="">직관</li><li class="on">논리</li><li class="">데이터</li></ol><div class="head"><div class="where"><b>② 순위 변화</b></div><h2>한 걸음마다 비슷한 해석 시간이 붙어요</h2></div><div class="sbody"><p class="lead">C++ 에서 <b>0.87ns</b> 걸리던 걸음도, <b>170ns</b> 걸리던 걸음도 Python 에서는 <b>수십~수백 ns</b> 가 돼요. 그래서 <b>구조끼리의 차이가 줄고, 순위가 바뀌어요.</b></p></div></section>
+<section class="card" id="l_b3"><ol class="stage top"><li class="">직관</li><li class="">논리</li><li class="on">데이터</li></ol><div class="head"><div class="where"><b>② 순위 변화</b></div><h2>순회: 빠르던 배열은 47~271배,<br>느리던 연결 리스트는 2배만 느려져요</h2></div><div class="sbody"><div class="hbs log lr"><div class="hb-head"><span></span><span>눈금 한 칸마다 10배</span><span>C++ → Python</span></div><div class="hb"><span class="nm"><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="12" height="12"/><rect x="13" y="6" width="12" height="12"/><rect x="25" y="6" width="12" height="12"/><rect x="37" y="6" width="12" height="12"/></g></svg>영화별 배열</span><span class="tr" style="background-size:40.369% 100%"><i style="width:98.2%"></i></span><span class="vl"><b>271배</b> 1.08ns → 293ns</span></div><div class="hb"><span class="nm"><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="12" height="12"/><rect x="13" y="6" width="12" height="12"/><rect x="25" y="6" width="12" height="12"/><rect x="37" y="6" width="12" height="12"/></g></svg>압축 배열</span><span class="tr" style="background-size:40.369% 100%"><i style="width:78.8%"></i></span><span class="vl"><b>89배</b> 0.87ns → 77.7ns</span></div><div class="hb"><span class="nm"><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="12" height="12"/><rect x="13" y="6" width="12" height="12"/><rect x="25" y="6" width="12" height="12"/><rect x="37" y="6" width="12" height="12"/></g></svg>정렬 안 한 배열</span><span class="tr" style="background-size:40.369% 100%"><i style="width:69.1%"></i></span><span class="vl"><b>51배</b> 1.18ns → 60.8ns</span></div><div class="hb"><span class="nm"><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="12" height="12"/><rect x="13" y="6" width="12" height="12"/><rect x="25" y="6" width="12" height="12"/><rect x="37" y="6" width="12" height="12"/></g></svg>정렬한 배열</span><span class="tr" style="background-size:40.369% 100%"><i style="width:67.6%"></i></span><span class="vl"><b>47배</b> 1.70ns → 80.2ns</span></div><div class="hb"><span class="nm"><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 1h40v22h-40zM5 8.3h40M5 15.6h40M15 1v22M25 1v22M35 1v22"/></g><rect x="26" y="9.3" width="8" height="5.3" fill="currentColor"/></svg>2차원 표</span><span class="tr" style="background-size:40.369% 100%"><i style="width:63.1%"></i></span><span class="vl"><b>37배</b> 62.8ns → 2,297ns</span></div><div class="hb"><span class="nm"><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="1" width="12" height="11"/><rect x="19" y="1" width="12" height="11"/><rect x="31" y="1" width="12" height="11"/><rect x="7" y="12" width="12" height="11"/><rect x="19" y="12" width="12" height="11"/><rect x="31" y="12" width="12" height="11"/></g><rect x="21" y="14" width="8" height="7" fill="currentColor"/></svg>해시 개방 주소 (직접)</span><span class="tr" style="background-size:40.369% 100%"><i style="width:55.3%"></i></span><span class="vl"><b>23배</b> 11.7ns → 275ns</span></div><div class="hb"><span class="nm"><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="1" width="12" height="11"/><rect x="19" y="1" width="12" height="11"/><rect x="31" y="1" width="12" height="11"/><rect x="7" y="12" width="12" height="11"/><rect x="19" y="12" width="12" height="11"/><rect x="31" y="12" width="12" height="11"/></g><rect x="21" y="14" width="8" height="7" fill="currentColor"/></svg>해시 체이닝 (직접)</span><span class="tr" style="background-size:40.369% 100%"><i style="width:18.7%"></i></span><span class="vl"><b>2.9배</b> 31.9ns → 92.5ns</span></div><div class="hb"><span class="nm"><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="2" width="10" height="10"/><rect x="20" y="12" width="10" height="10"/><rect x="39" y="2" width="10" height="10"/><path d="M11 8l9 8M30 16l9 -8"/></g></svg>연결 리스트 (내장)</span><span class="tr" style="background-size:40.369% 100%"><i style="width:13.2%"></i></span><span class="vl"><b>2.1배</b> 169ns → 360ns</span></div><div class="hb"><span class="nm"><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="2" width="10" height="10"/><rect x="20" y="12" width="10" height="10"/><rect x="39" y="2" width="10" height="10"/><path d="M11 8l9 8M30 16l9 -8"/></g></svg>연결 리스트 (직접)</span><span class="tr" style="background-size:40.369% 100%"><i style="width:11.5%"></i></span><span class="vl"><b>1.9배</b> 170ns → 329ns</span></div><div class="hb"><span class="nm"><svg class="ic" viewBox="0 0 50 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="1" width="12" height="11"/><rect x="19" y="1" width="12" height="11"/><rect x="31" y="1" width="12" height="11"/><rect x="7" y="12" width="12" height="11"/><rect x="19" y="12" width="12" height="11"/><rect x="31" y="12" width="12" height="11"/></g><rect x="21" y="14" width="8" height="7" fill="currentColor"/></svg>해시 (내장)</span><span class="tr" style="background-size:40.369% 100%"><i style="width:1.5%"></i></span><span class="vl"><b>0.9배</b> 70.4ns → 62.3ns</span></div></div></div></section>
+<section class="card" id="l_b4"><ol class="stage top"><li class="">직관</li><li class="">논리</li><li class="on">데이터</li></ol><div class="head"><div class="where"><b>② 순위 변화</b></div><h2>순회의 1등과 꼴찌 차이가<br>250배에서 38배로 줄어요</h2></div><div class="sbody"><div class="sps"><div class="sp hd"><span></span><span>C++</span><i></i><span>Python</span><em></em></div><div class="sp"><span class="nm">공간 복잡도</span><b class="c">17배</b><i>→</i><b class="p">26배</b><em>늘어요</em></div><div class="sp dn"><span class="nm">순회</span><b class="c">250배</b><i>→</i><b class="p">38배</b><em>줄어요</em></div><div class="sp"><span class="nm">검색</span><b class="c">약 21만 배</b><i>→</i><b class="p">약 47만 배</b><em>늘어요</em></div><div class="sp dn"><span class="nm">삽입</span><b class="c">약 13만 배</b><i>→</i><b class="p">약 1만 배</b><em>줄어요</em></div></div><p class="fine">각 언어에서 1등과 꼴찌의 차이예요. C++ 은 11가지, Python 은 균형 트리를 뺀 10가지 기준이에요.</p></div></section>
+<section class="card" id="l_b5"><ol class="stage top"><li class="">직관</li><li class="">논리</li><li class="on">데이터</li></ol><div class="head"><div class="where"><b>② 순위 변화</b></div><h2>가장 무난한 구조도 바뀌어요<br>C++ 은 영화별 배열, Python 은 해시 (내장)</h2></div><div class="sbody"><svg class="slope" viewBox="0 0 900 404" role="img" aria-label="C++ 종합 순위와 Python 종합 순위 비교"><text x="338" y="16" text-anchor="end" class="sh">C++</text><text x="562" y="16" class="sh">Python</text><g class="sl eq"><title>압축 배열: C++ 3위 → Python 3위</title><line x1="352" y1="120" x2="548" y2="120"/><circle cx="352" cy="120" r="4.5"/><circle cx="548" cy="120" r="4.5"/><text x="338" y="125" text-anchor="end" class="nm">압축 배열</text><text x="18" y="125" class="rk">3위</text><text x="562" y="125" class="nm">압축 배열</text><text x="882" y="125" text-anchor="end" class="rk">3위</text></g><g class="sl eq"><title>연결 리스트 (내장): C++ 9위 → Python 10위</title><line x1="352" y1="342" x2="548" y2="379"/><circle cx="352" cy="342" r="4.5"/><circle cx="548" cy="379" r="4.5"/><text x="338" y="347" text-anchor="end" class="nm">연결 리스트 (내장)</text><text x="18" y="347" class="rk">9위</text><text x="562" y="384" class="nm">연결 리스트 (내장)</text><text x="882" y="384" text-anchor="end" class="rk">10위</text></g><g class="sl eq"><title>정렬 안 한 배열: C++ 4위 → Python 5위</title><line x1="352" y1="157" x2="548" y2="194"/><circle cx="352" cy="157" r="4.5"/><circle cx="548" cy="194" r="4.5"/><text x="338" y="162" text-anchor="end" class="nm">정렬 안 한 배열</text><text x="18" y="162" class="rk">4위</text><text x="562" y="199" class="nm">정렬 안 한 배열</text><text x="882" y="199" text-anchor="end" class="rk">5위</text></g><g class="sl eq"><title>2차원 표: C++ 5위 → Python 6위</title><line x1="352" y1="194" x2="548" y2="231"/><circle cx="352" cy="194" r="4.5"/><circle cx="548" cy="231" r="4.5"/><text x="338" y="199" text-anchor="end" class="nm">2차원 표</text><text x="18" y="199" class="rk">5위</text><text x="562" y="236" class="nm">2차원 표</text><text x="882" y="236" text-anchor="end" class="rk">6위</text></g><g class="sl eq"><title>연결 리스트 (직접): C++ 10위 → Python 8위</title><line x1="352" y1="379" x2="548" y2="305"/><circle cx="352" cy="379" r="4.5"/><circle cx="548" cy="305" r="4.5"/><text x="338" y="384" text-anchor="end" class="nm">연결 리스트 (직접)</text><text x="18" y="384" class="rk">10위</text><text x="562" y="310" class="nm">연결 리스트 (직접)</text><text x="882" y="310" text-anchor="end" class="rk">8위</text></g><g class="sl eq"><title>정렬한 배열: C++ 6위 → Python 4위</title><line x1="352" y1="231" x2="548" y2="157"/><circle cx="352" cy="231" r="4.5"/><circle cx="548" cy="157" r="4.5"/><text x="338" y="236" text-anchor="end" class="nm">정렬한 배열</text><text x="18" y="236" class="rk">6위</text><text x="562" y="162" class="nm">정렬한 배열</text><text x="882" y="162" text-anchor="end" class="rk">4위</text></g><g class="sl dn"><title>해시 개방 주소 (직접): C++ 2위 → Python 7위</title><line x1="352" y1="83" x2="548" y2="268"/><circle cx="352" cy="83" r="4.5"/><circle cx="548" cy="268" r="4.5"/><text x="338" y="88" text-anchor="end" class="nm">해시 개방 주소 (직접)</text><text x="18" y="88" class="rk">2위</text><text x="562" y="273" class="nm">해시 개방 주소 (직접)</text><text x="882" y="273" text-anchor="end" class="rk">7위</text></g><g class="sl up"><title>해시 체이닝 (직접): C++ 7위 → Python 2위</title><line x1="352" y1="268" x2="548" y2="83"/><circle cx="352" cy="268" r="4.5"/><circle cx="548" cy="83" r="4.5"/><text x="338" y="273" text-anchor="end" class="nm">해시 체이닝 (직접)</text><text x="18" y="273" class="rk">7위</text><text x="562" y="88" class="nm">해시 체이닝 (직접)</text><text x="882" y="88" text-anchor="end" class="rk">2위</text></g><g class="sl up"><title>해시 (내장): C++ 8위 → Python 1위</title><line x1="352" y1="305" x2="548" y2="46"/><circle cx="352" cy="305" r="4.5"/><circle cx="548" cy="46" r="4.5"/><text x="338" y="310" text-anchor="end" class="nm">해시 (내장)</text><text x="18" y="310" class="rk">8위</text><text x="562" y="51" class="nm">해시 (내장)</text><text x="882" y="51" text-anchor="end" class="rk">1위</text></g><g class="sl dn"><title>영화별 배열: C++ 1위 → Python 9위</title><line x1="352" y1="46" x2="548" y2="342"/><circle cx="352" cy="46" r="4.5"/><circle cx="548" cy="342" r="4.5"/><text x="338" y="51" text-anchor="end" class="nm">영화별 배열</text><text x="18" y="51" class="rk">1위</text><text x="562" y="347" class="nm">영화별 배열</text><text x="882" y="347" text-anchor="end" class="rk">9위</text></g></svg><p class="fine">네 가지 일의 평균 등수로 매긴 종합 순위예요. 파란 선은 Python 에서 3칸 이상 오른 구조, 주황 선은 3칸 이상 내린 구조예요.</p></div></section>
+<section class="card" id="l_c1"><ol class="stage top"><li class="on">논리</li><li class="">데이터</li></ol><div class="head"><div class="where"><b>③ 내장과 직접 구현</b></div><h2>Python 에 들어 있는 자료구조는<br>속이 C 로 만들어져 있어요</h2></div><div class="sbody"><p class="lead"><b>Python 으로 직접 짠 코드</b>는 한 줄씩 해석되지만, <b>언어에 들어 있는 자료구조</b>는 해석을 거치지 않아요. C++ 은 둘 다 같은 방식으로 실행돼서 <b>우리 데이터에 맞춘 쪽</b>이 유리해요.</p></div></section>
+<section class="card" id="l_c2"><ol class="stage top"><li class="">논리</li><li class="on">데이터</li></ol><div class="head"><div class="where"><b>③ 내장과 직접 구현</b></div><h2>직접 만들면 빨라지는지는<br>언어에 따라 반대예요</h2></div><div class="sbody"><div class="why2"><div class="wy hi"><div class="who"><b>C++</b></div><div class="num"><strong>직접 만든 것</strong><span>이 더 빨라요</span></div><p>우리 데이터에 맞춘 쪽이 최대 9배 빨라요.</p></div><div class="gap"><b>반대</b></div><div class="wy hi"><div class="who"><b>Python</b></div><div class="num"><strong>언어에 들어 있는 것</strong><span>이 더 빨라요</span></div><p>네 가지 비교 모두 1.1~1.8배 빨라요.</p></div></div><p class="fine">해시 검색, 해시 만들기, 힙으로 10편 고르기, LRU 캐시 네 가지를 비교했어요. C++ 의 힙만 차이가 없었어요.</p></div></section>
+<section class="card" id="l_sum">
+  <div class="head"><div class="eyebrow">정리</div><h2>언어 비교에서 읽을 세 가지</h2></div>
+  <ul class="points big">
+    <li><span>같은 자료구조, 같은 일인데 Python 은 <b>최대 271배</b> 느려요.</span></li>
+    <li><span><b>빠르던 구조일수록 더 많이</b> 느려져서, 순위가 바뀌어요.</span></li>
+    <li><span>C++ 은 <b>직접 만든 것</b>, Python 은 <b>언어에 들어 있는 것</b>이 유리해요.</span></li>
+  </ul>
+</section>
+<section class="card" id="l_rep">
+  <div class="head"><div class="eyebrow">믿을 수 있나요</div><h2>같은 데이터, 같은 일로 비교했어요</h2></div>
+  <ul class="points">
+    <li><span>평점 1천만 건을 같은 순서로 넣고, 10가지 자료구조가 두 언어에서 같은 답을 냈어요.</span></li>
+    <li><span>C++ 은 5번씩 측정한 가운데 값, Python 은 한 번씩 측정한 값이에요. 차이가 작은 순위는 바뀔 수 있어요.</span></li>
+    <li><span>Python 에는 언어에 들어 있는 균형 트리가 없어서 뺐어요.</span></li>
+    <li><span>같은 가상 서버(2코어, 8GB)에서 g++ 13.3 -O2 와 CPython 3.13 으로 측정했어요.</span></li>
   </ul>
 </section>
 </main>
@@ -1248,17 +1310,17 @@ function setLang(l){rankEl.setAttribute('data-lang',l);[].forEach.call(langsw.ch
   setLang(l);setupSlides('rank');
   var t=(cur&&getComputedStyle(cur).display!=='none')?cur:(document.getElementById(other)||slides[Math.min(ix,slides.length-1)]);
   if(t)t.scrollIntoView({block:'center',behavior:'instant'})})});
-var curPage='',PAGES=['about','summary','rank','verify'];
+var curPage='',PAGES=['about','summary','rank','lang','verify'];
 function route(){
-  var h0=(location.hash||'').replace('#','').split('/'),h=h0[0],nth=+h0[1]||0,page=(h===''||h==='about')?'about':(h==='summary'?'summary':((h==='rank'||h.indexOf('r_')===0)?'rank':'verify'));
-  ['about','rank','verify','summary'].forEach(function(p){
+  var h0=(location.hash||'').replace('#','').split('/'),h=h0[0],nth=+h0[1]||0,page=(h===''||h==='about')?'about':(h==='summary'?'summary':((h==='rank'||h.indexOf('r_')===0)?'rank':((h==='lang'||h.indexOf('l_')===0)?'lang':'verify')));
+  PAGES.forEach(function(p){
     document.getElementById('page-'+p).hidden=p!==page;
     var t=document.getElementById('tab-'+p);if(p===page)t.setAttribute('aria-current','page');else t.removeAttribute('aria-current');
   });
   document.getElementById('subbar').hidden=true;
   langsw.hidden=true;
   setupSlides(page);
-  var target=(page==='verify'||page==='rank')&&h!=='verify'&&h!=='rank'&&document.getElementById(h);
+  var target=(page==='verify'||page==='rank'||page==='lang')&&h!=='verify'&&h!=='rank'&&h!=='lang'&&document.getElementById(h);
   var sw=curPage!==page,bh=sw?'instant':'auto';
   if(nth&&slides[nth-1])slides[nth-1].scrollIntoView({block:'center',behavior:bh});else if(target)target.scrollIntoView({block:'center',behavior:bh});else window.scrollTo({top:0,left:0,behavior:bh});
   if(sw&&curPage&&root.classList.contains('fx')){var el=document.getElementById('page-'+page),cls=PAGES.indexOf(page)>PAGES.indexOf(curPage)?'pgR':'pgL';
